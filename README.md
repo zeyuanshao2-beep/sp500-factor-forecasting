@@ -1,35 +1,32 @@
-# S&P 500 factor forecasting
+# S&P 500 Factor Forecasting
 
-标普500未来六个美股交易日收盘点位预测。本仓库整理了报告对应的因子筛选、
-单因子验证、双因子扩展和最终预测代码；原项目文件保留在本地。
+This repository contains the code used to forecast the S&P 500 closing level six US trading sessions ahead. It covers factor screening, single-factor validation, two-factor extensions, and the final forecast presented in the accompanying report. The original project files are retained locally.
 
-## 主要结果
+## Main Results
 
-| 项目 | 结果 |
+| Item | Result |
 | --- | --- |
-| 预测起点 | 2026年11月12日收盘 |
-| 预测目标 | 2026年11月20日收盘 |
-| 最终模型 | VIX3M/VIX，含截距OLS，1,260组已实现六日收益训练样本 |
-| 起点点位 | 7,592.40 |
-| 预测六日收益率 | 0.493% |
-| 预测收盘点位 | **7,629.84** |
+| Forecast origin | Market close on 12 November 2026 |
+| Forecast target | Market close on 20 November 2026 |
+| Final model | VIX3M/VIX; OLS with an intercept, fitted to 1,260 observations with realized six-session returns |
+| Index level at the forecast origin | 7,592.40 |
+| Forecast six-session return | 0.493% |
+| Forecast closing level | **7,629.84** |
 
-数值计算使用完整精度；报告中的一般数据展示三位小数，点位展示两位小数。
+Calculations use full numerical precision. General numerical results in the report are displayed to three decimal places, and index levels to two decimal places.
 
-## 快速复算最终预测
+## Reproduce the Final Forecast
 
-Python 3.11或更新版本。最终预测脚本只使用Python标准库，可直接离线运行：
+Use Python 3.11 or later. The final forecast script uses only the Python standard library and can run offline:
 
 ```bash
 python scripts/final_forecast.py
 python -m unittest discover -s tests -v
 ```
 
-训练因子日期为2021-10-28至2026-11-04；全部1,260个六日目标收益均在
-2026-11-12或之前实现。脚本通过`statistics.linear_regression`与50位Decimal
-中心矩公式交叉检查OLS系数，并拒绝尚未实现的训练标签。
+The training factor dates run from 2021-10-28 to 2026-11-04. All 1,260 six-session target returns were realized on or before 2026-11-12. The script cross-checks the OLS coefficients using `statistics.linear_regression` and centered-moment formulas evaluated with 50-digit Decimal precision. It rejects training labels that had not been realized by the forecast origin.
 
-## 因子筛选与双因子扩展
+## Factor Screening and Two-Factor Extensions
 
 ```bash
 python -m pip install -r requirements.txt
@@ -37,26 +34,25 @@ python scripts/screen_factors.py --features data/local/revised_features100.csv
 python scripts/two_factor_extension.py --features data/local/revised_features100.csv
 ```
 
-完整100因子矩阵未随代码上传，准备方法与本地归档位置见[data/README.md](data/README.md)。
-每次拟合仅使用相应起点已实现的最近1,260组结果；同一381个历史起点用于统一比较。
-因子排名、点位预测和汇总写入`results/`，不覆盖输入。
+The complete 100-factor input matrix is not included in this repository. See [data/README.md](data/README.md) for the required input format and its location in the original local project.
 
-单因子全期最低MAPE为VIX3M/VIX的1.402%。最佳双因子加入30年减10年美债利差，
-MAPE为1.384%，改善0.018个百分点。但配对区块自助法95%区间包含零，多重比较
-调整后仍包含零，因此保留结构更简单的单因子模型。
+Each rolling fit uses the most recent 1,260 observations whose target returns were already realized at the corresponding forecast origin. All models are compared across the same 381 historical forecast origins. Factor rankings, predicted index levels, and summary results are written to `results/` without overwriting the inputs.
 
-后段127个起点与全期筛选区间重叠，应作为稳定性诊断，不是独立留出验证。
-因子筛选和窗口比较属于探索性历史研究，不能将最小回测误差解释为未来表现保证。
+VIX3M/VIX achieves the lowest full-period single-factor MAPE, at 1.402%. The best two-factor extension adds the 30-year minus 10-year US Treasury yield spread, reducing MAPE to 1.384%, an improvement of 0.018 percentage points. However, the paired block-bootstrap 95% interval includes zero, including after adjustment for multiple comparisons. The simpler single-factor model is therefore retained.
 
-## 文件对应关系
+The later 127 forecast origins overlap with the full-period screening sample. They provide a stability diagnostic rather than an independent holdout test. Factor screening and window comparisons are exploratory historical analyses; the lowest backtest error does not guarantee future performance.
 
-- `src/forecasting.py`：从原研究脚本保留的滚动OLS、误差计算、双因子拟合及区块自助法。
-- `scripts/screen_factors.py`：100个单因子的排名及后段基准比较，对应报告5.1、5.2。
-- `scripts/two_factor_extension.py`：固定VIX3M/VIX并逐一加入99个候选因子，对应报告5.3。
-- `scripts/final_forecast.py`：最终1,260样本OLS与11月20日点位预测，对应报告5.4。
-- `data/`：因子定义、最终预测所用训练样本及公开来源记录。
-- `PROVENANCE.json`：原始脚本及输入文件的SHA256，记录代码整理来源。
+## Repository Contents
 
-仓库包含研究代码和复算所需的最终训练快照，不包含Word报告、对话记录、软件运行时、
-原始HTTP响应头、Cookie或账号凭据。数据来源为Yahoo Finance和Cboe，详细URL见
-`data/final_inputs.json`。第三方数据的使用条件由其提供者规定；本仓库未为其另行授权。
+- `src/forecasting.py`: Rolling OLS, error calculations, two-factor fitting, and block-bootstrap functions preserved from the original research scripts.
+- `scripts/screen_factors.py`: Ranking of 100 single-factor models and benchmark comparisons over the later sample; corresponds to report Sections 5.1 and 5.2.
+- `scripts/two_factor_extension.py`: Extensions that retain VIX3M/VIX and add each of the other 99 candidate factors; corresponds to report Section 5.3.
+- `scripts/final_forecast.py`: Final OLS fit using 1,260 observations and the 20 November closing-level forecast; corresponds to report Section 5.4.
+- `data/`: Factor definitions, the final training snapshot, and public-source provenance.
+- `PROVENANCE.json`: SHA256 hashes of the original scripts and input files used to prepare this repository.
+
+## Data and Provenance
+
+The repository includes the research code and the final training snapshot needed to reproduce the final forecast. It excludes Word reports, conversation records, software runtimes, raw HTTP response headers, cookies, and account credentials.
+
+The final forecast inputs are sourced from Yahoo Finance and Cboe; the detailed source URLs are recorded in `data/final_inputs.json`. Third-party data remain subject to their providers' terms, and this repository does not grant additional rights to those data.
