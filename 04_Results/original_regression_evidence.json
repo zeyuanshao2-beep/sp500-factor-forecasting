@@ -1,0 +1,29 @@
+{
+  "origin": "2026-10-15",
+  "train_start": "2021-09-30",
+  "train_end": "2026-10-07",
+  "latest_training_target": "2026-10-15",
+  "training_n": 1260,
+  "alpha": 0.052601562226533435,
+  "beta": -0.04411897986338746,
+  "training_R_squared": 0.018656022275674977,
+  "predicted_return": 0.0030414202050247,
+  "predicted_level": 7767.6129993249,
+  "single_MAPE_pct": 1.4024895249745863,
+  "pair_MAPE_pct": 1.3902047260815,
+  "improvement_pp": 0.0122847988932,
+  "relative_improvement_pct": 0.8759280318633117,
+  "pair_minus_single_CI95": [
+    -0.085738295505741,
+    0.062027854087833
+  ],
+  "source_hashes": {
+    "sp500_pcr_model\\outputs\\vix_ratio_start_2025-04-10_h6\\all_forecasts.csv": "c3df3fd2c6e43e2d65f3da1cbdd8a232d55988177d2ea3fae997ed776092b567",
+    "sp500_pcr_model\\outputs\\vix_ratio_start_2025-04-10_h6\\features.csv": "8b0b9834c07858620eee3ae60f83631fe80663fdff9a2628718f41c3e733fb16",
+    "sp500_pcr_model\\outputs\\vix_ratio_start_2025-04-10_h6\\independent_verification.json": "1b44645c783fbd1b50fbc8d5fceba243e0f4ea34a785ebae709a08f3dcbcb076",
+    "sp500_pcr_model\\outputs\\vix_plus_one_start_2025-04-10_rolling1260\\ranking.csv": "6da447e0b2e2ebfb957d47fa3c4609ae1a28aef53cc2a63cca9dc084abaef98c",
+    "sp500_pcr_model\\outputs\\vix_plus_one_start_2025-04-10_rolling1260\\bootstrap_comparisons.csv": "1ade9d7857fed3fc54a92e58e9ec87320e04579a49c2c27fcd40917ca7e331cd"
+  },
+  "no_new_market_data": true,
+  "final_november_prediction": "Pending cutoff inputs"
+}

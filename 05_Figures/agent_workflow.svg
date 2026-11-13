@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="380" viewBox="0 0 1100 380">
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="30" font-family="Arial,sans-serif" font-size="21" font-weight="bold">Agent-assisted research workflow</text>
+<rect x="20" y="55" width="240" height="120" fill="#f5f8fa" stroke="#34495e"/>
+<text x="30" y="80" font-family="Arial,sans-serif" font-size="15" font-weight="bold">1 Human instructions</text>
+<text x="30" y="106" font-family="Arial,sans-serif" font-size="13">Set market, cutoff and target</text>
+<text x="30" y="127" font-family="Arial,sans-serif" font-size="13">Public sources and Python</text>
+<text x="263" y="123" font-family="Arial,sans-serif" font-size="21">&#8594;</text>
+<rect x="285" y="55" width="240" height="120" fill="#f5f8fa" stroke="#34495e"/>
+<text x="295" y="80" font-family="Arial,sans-serif" font-size="15" font-weight="bold">2 Inspect dated inputs</text>
+<text x="295" y="106" font-family="Arial,sans-serif" font-size="13">Load frozen source files</text>
+<text x="295" y="127" font-family="Arial,sans-serif" font-size="13">Check observation dates</text>
+<text x="528" y="123" font-family="Arial,sans-serif" font-size="21">&#8594;</text>
+<rect x="550" y="55" width="240" height="120" fill="#f5f8fa" stroke="#34495e"/>
+<text x="560" y="80" font-family="Arial,sans-serif" font-size="15" font-weight="bold">3 Agent timing checks</text>
+<text x="560" y="106" font-family="Arial,sans-serif" font-size="13">Check the equity calendar</text>
+<text x="560" y="127" font-family="Arial,sans-serif" font-size="13">Correct six-session horizon</text>
+<text x="793" y="123" font-family="Arial,sans-serif" font-size="21">&#8594;</text>
+<rect x="815" y="55" width="240" height="120" fill="#f5f8fa" stroke="#34495e"/>
+<text x="825" y="80" font-family="Arial,sans-serif" font-size="15" font-weight="bold">4 Python calculations</text>
+<text x="825" y="106" font-family="Arial,sans-serif" font-size="13">Build factors and rolling OLS</text>
+<text x="825" y="127" font-family="Arial,sans-serif" font-size="13">Compare common origins</text>
+<rect x="20" y="205" width="240" height="120" fill="#f5f8fa" stroke="#34495e"/>
+<text x="30" y="230" font-family="Arial,sans-serif" font-size="15" font-weight="bold">5 Evaluate evidence</text>
+<text x="30" y="256" font-family="Arial,sans-serif" font-size="13">Compare benchmarks</text>
+<text x="30" y="277" font-family="Arial,sans-serif" font-size="13">Test second-factor additions</text>
+<text x="263" y="273" font-family="Arial,sans-serif" font-size="21">&#8594;</text>
+<rect x="285" y="205" width="240" height="120" fill="#f5f8fa" stroke="#34495e"/>
+<text x="295" y="230" font-family="Arial,sans-serif" font-size="15" font-weight="bold">6 Independent checks</text>
+<text x="295" y="256" font-family="Arial,sans-serif" font-size="13">Recompute coefficients</text>
+<text x="295" y="277" font-family="Arial,sans-serif" font-size="13">Check labels and snapshots</text>
+<text x="528" y="273" font-family="Arial,sans-serif" font-size="21">&#8594;</text>
+<rect x="550" y="205" width="240" height="120" fill="#f5f8fa" stroke="#34495e"/>
+<text x="560" y="230" font-family="Arial,sans-serif" font-size="15" font-weight="bold">7 Model recommendation</text>
+<text x="560" y="256" font-family="Arial,sans-serif" font-size="13">Recommend VIX3M/VIX</text>
+<text x="560" y="277" font-family="Arial,sans-serif" font-size="13">Record uncertainty</text>
+<text x="793" y="273" font-family="Arial,sans-serif" font-size="21">&#8594;</text>
+<rect x="815" y="205" width="240" height="120" fill="#f5f8fa" stroke="#34495e"/>
+<text x="825" y="230" font-family="Arial,sans-serif" font-size="15" font-weight="bold">8 Human review</text>
+<text x="825" y="256" font-family="Arial,sans-serif" font-size="13">Verify evidence and inputs</text>
+<text x="825" y="277" font-family="Arial,sans-serif" font-size="13">Final approval by the group</text>
+</svg>

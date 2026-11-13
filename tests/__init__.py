@@ -1,1 +1,0 @@
-"""Numerical and timing checks."""

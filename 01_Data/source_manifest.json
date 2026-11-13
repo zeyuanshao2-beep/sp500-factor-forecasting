@@ -1,0 +1,102 @@
+[
+  {
+    "file": "01_Data/raw/final_yahoo_SP500.json",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?period1=1609459200&period2=1794528000&interval=1d",
+    "retrieved_utc": "2026-11-12T22:17:17.096312+00:00",
+    "sha256": "b95197d5959a6232d5b557b4290f6dd7c7b070129edc8a29129724df9f3593c6",
+    "http_last_modified": null,
+    "http_date": "Thu, 12 Nov 2026 22:17:17 GMT",
+    "publication_vintage_verified": false,
+    "publication_note": "Retrieval and HTTP modification times are recorded; they do not establish the first historical publication time of every observation."
+  },
+  {
+    "file": "01_Data/raw/final_VIX_History.csv",
+    "url": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
+    "retrieved_utc": "2026-11-12T22:17:17.064312+00:00",
+    "sha256": "325e7d361a452cfeb94152f6d39ee4db28a8c0838357936b329137b61a063fc2",
+    "http_last_modified": "Thu, 12 Nov 2026 02:31:04 GMT",
+    "http_date": "Thu, 12 Nov 2026 22:17:17 GMT",
+    "publication_vintage_verified": false,
+    "publication_note": "Retrieval and HTTP modification times are recorded; they do not establish the first historical publication time of every observation."
+  },
+  {
+    "file": "01_Data/raw/final_VIX3M_History.csv",
+    "url": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv",
+    "retrieved_utc": "2026-11-12T22:17:17.089318+00:00",
+    "sha256": "8e7bc7943edf71afd29113f3c87c3a66b6e1a802cae990ecc26fe8884ac1b22c",
+    "http_last_modified": "Wed, 11 Nov 2026 22:31:08 GMT",
+    "http_date": "Thu, 12 Nov 2026 22:17:17 GMT",
+    "publication_vintage_verified": false,
+    "publication_note": "Retrieval and HTTP modification times are recorded; they do not establish the first historical publication time of every observation."
+  },
+  {
+    "file": "01_Data/raw/final_cboe_quote_SPX.json",
+    "url": "https://cdn-api.cboe.com/api/global/delayed_quotes/quotes/_SPX.json",
+    "retrieved_utc": "2026-11-12T22:18:26.542405+00:00",
+    "sha256": "ef73e8cef95ec1674abff5842e10c4d08ca9d8c46cc35d21dbf872d61e49be66",
+    "http_last_modified": "Thu, 12 Nov 2026 22:17:50 GMT",
+    "http_date": "Thu, 12 Nov 2026 22:18:27 GMT",
+    "publication_vintage_verified": false,
+    "publication_note": "Retrieval and HTTP modification times are recorded; they do not establish the first historical publication time of every observation."
+  },
+  {
+    "file": "01_Data/raw/final_cboe_quote_VIX.json",
+    "url": "https://cdn-api.cboe.com/api/global/delayed_quotes/quotes/_VIX.json",
+    "retrieved_utc": "2026-11-12T22:18:26.856622+00:00",
+    "sha256": "9930551beb8814f5cc6d651416864d83d0ae91c6891563343c04c66fd7fbfd85",
+    "http_last_modified": "Thu, 12 Nov 2026 22:17:51 GMT",
+    "http_date": "Thu, 12 Nov 2026 22:18:27 GMT",
+    "publication_vintage_verified": false,
+    "publication_note": "Retrieval and HTTP modification times are recorded; they do not establish the first historical publication time of every observation."
+  },
+  {
+    "file": "01_Data/raw/final_cboe_quote_VIX3M.json",
+    "url": "https://cdn-api.cboe.com/api/global/delayed_quotes/quotes/_VIX3M.json",
+    "retrieved_utc": "2026-11-12T22:18:26.814616+00:00",
+    "sha256": "5c9a42939d593f728c91f59ee622fb6b52e96527fd82815f863558c2c7b204ec",
+    "http_last_modified": "Thu, 12 Nov 2026 22:17:51 GMT",
+    "http_date": "Thu, 12 Nov 2026 22:18:27 GMT",
+    "publication_vintage_verified": false,
+    "publication_note": "Retrieval and HTTP modification times are recorded; they do not establish the first historical publication time of every observation."
+  },
+  {
+    "file": "01_Data/raw/archived_yahoo_SP500_2020_2026.json",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?period1=1583020800&period2=1792800000&interval=1d",
+    "retrieved_utc": "2026-10-25T19:55:28.218987+00:00",
+    "sha256": "baad7d10fd6aba978a769519b6ff3d53c405c145f227bab25d91121398e9fc0b",
+    "http_last_modified": null,
+    "http_date": "Sun, 25 Oct 2026 19:55:28 GMT",
+    "publication_vintage_verified": false,
+    "publication_note": "Retrieval and HTTP modification times are recorded; they do not establish the first historical publication time of every observation."
+  },
+  {
+    "file": "01_Data/raw/archived_yahoo_SP500_2010_2020.json",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?period1=1262304000&period2=1609459200&interval=1d",
+    "retrieved_utc": "2026-11-04T23:30:02.784410+00:00",
+    "sha256": "ad16e1d9fd5499bcc2006144958edf73c9a78be2176085acd8140590eb92a695",
+    "http_last_modified": null,
+    "http_date": "Wed, 04 Nov 2026 23:30:03 GMT",
+    "publication_vintage_verified": false,
+    "publication_note": "Retrieval and HTTP modification times are recorded; they do not establish the first historical publication time of every observation."
+  },
+  {
+    "file": "01_Data/raw/archived_VIX_History.csv",
+    "url": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
+    "retrieved_utc": "2026-11-02T22:37:05.012065+00:00",
+    "sha256": "a5409500cdb8fdd86ba926dcfc7de5b1a54d365d4b7850a1a50c803ae57fddd1",
+    "http_last_modified": "Sat, 31 Oct 2026 01:11:02 GMT",
+    "http_date": "Mon, 02 Nov 2026 22:37:03 GMT",
+    "publication_vintage_verified": false,
+    "publication_note": "Retrieval and HTTP modification times are recorded; they do not establish the first historical publication time of every observation."
+  },
+  {
+    "file": "01_Data/raw/archived_VIX3M_History.csv",
+    "url": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv",
+    "retrieved_utc": "2026-11-02T22:37:04.957647+00:00",
+    "sha256": "35cd1371eb605c382f8075cd6f02841887d4284d268daaf613300b627263478d",
+    "http_last_modified": "Fri, 30 Oct 2026 21:30:41 GMT",
+    "http_date": "Mon, 02 Nov 2026 22:37:03 GMT",
+    "publication_vintage_verified": false,
+    "publication_note": "Retrieval and HTTP modification times are recorded; they do not establish the first historical publication time of every observation."
+  }
+]

@@ -1,0 +1,103 @@
+{
+  "scope": "Actual tool receipts from the 13 November 2026 packaging run, with local executable and working-directory paths redacted. These are not original historical tool-call traces.",
+  "calls": [
+    {
+      "command": "python 02_Code/final_forecast.py",
+      "tool": "exec_command",
+      "started_utc": "2026-11-13T11:16:30.431Z",
+      "completed_or_yielded_utc": "2026-11-13T11:16:31.458Z",
+      "result": {
+        "chunk_id": "7f51d2",
+        "wall_time_seconds": 0.7883197,
+        "exit_code": 0,
+        "original_token_count": 127,
+        "output": "{\r\n  \"origin\": \"2026-11-12\",\r\n  \"target\": \"2026-11-20\",\r\n  \"training_n\": 1260,\r\n  \"training_start\": \"2021-10-28\",\r\n  \"training_end\": \"2026-11-04\",\r\n  \"latest_training_target\": \"2026-11-12\",\r\n  \"alpha\": 0.05640705524827948,\r\n  \"beta\": -0.047985808008184916,\r\n  \"ratio\": 1.0727272727272728,\r\n  \"predicted_return_decimal\": 0.004931370294044751,\r\n  \"predicted_return_pct\": 0.4931370294044751,\r\n  \"unrounded_forecast\": 7629.840935820505,\r\n  \"final_forecast\": \"7629.84\",\r\n  \"independent_decimal_check\": \"PASS\"\r\n}\r\n"
+      },
+      "redactions": "Bundled executable path and host working directory are omitted from this public command display."
+    },
+    {
+      "command": "python -m unittest discover -s 02_Code/tests -v",
+      "tool": "exec_command",
+      "started_utc": "2026-11-13T11:16:30.441Z",
+      "completed_or_yielded_utc": "2026-11-13T11:16:31.711Z",
+      "result": {
+        "chunk_id": "98db0f",
+        "wall_time_seconds": 1.0253154,
+        "exit_code": 0,
+        "original_token_count": 88,
+        "output": "test_frozen_forecast_and_training_boundary (test_forecasting.FinalForecastChecks.test_frozen_forecast_and_training_boundary) ... ok\r\ntest_unmatured_label_is_rejected (test_forecasting.FinalForecastChecks.test_unmatured_label_is_rejected) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.031s\r\n\r\nOK\r\n"
+      },
+      "redactions": "Bundled executable path and host working directory are omitted from this public command display."
+    },
+    {
+      "command": "python 02_Code/construct_factor.py",
+      "tool": "exec_command",
+      "started_utc": "2026-11-13T11:16:30.441Z",
+      "completed_or_yielded_utc": "2026-11-13T11:16:31.454Z",
+      "result": {
+        "chunk_id": "56dd18",
+        "wall_time_seconds": 0.753561,
+        "exit_code": 0,
+        "original_token_count": 47,
+        "output": "{\r\n  \"rows\": 4242,\r\n  \"horizon_sessions\": 6,\r\n  \"last_observation\": \"2026-11-12\",\r\n  \"ratio_and_targets_crosscheck\": \"PASS\",\r\n  \"output\": \"reproduced_results\\\\constructed_factor.csv\"\r\n}\r\n"
+      },
+      "redactions": "Bundled executable path and host working directory are omitted from this public command display."
+    },
+    {
+      "command": "python 02_Code/window_benchmarks.py",
+      "tool": "exec_command",
+      "started_utc": "2026-11-13T11:16:30.441Z",
+      "completed_or_yielded_utc": "2026-11-13T11:16:33.731Z",
+      "result": {
+        "chunk_id": "0e10b8",
+        "wall_time_seconds": 2.9899874,
+        "exit_code": 0,
+        "original_token_count": 158,
+        "output": "    model  MAPE_pct  MAE_points  min_APE_pct  max_APE_pct\r\n  vix_756  1.407965   95.534616     0.001734     6.725834\r\n mean_756  1.450730   98.643027     0.014265     7.078026\r\nno_change  1.490776  101.300657     0.001544     7.240464\r\n vix_1260  1.402490   95.330994     0.001601     6.318670\r\nmean_1260  1.440356   97.988231     0.001482     6.921310\r\n vix_2520  1.428802   97.112120     0.004824     6.791378\r\nmean_2520  1.447065   98.387455     0.001665     7.003532\r\n{\r\n  \"origins\": 381,\r\n  \"bootstrap_replicates\": 3000,\r\n  \"block_length\": 20,\r\n  \"archived_bootstrap_max_gap\": 4.7406523151494184e-14,\r\n  \"status\": \"PASS\"\r\n}\r\n"
+      },
+      "redactions": "Bundled executable path and host working directory are omitted from this public command display."
+    },
+    {
+      "command": "python 02_Code/verify_package.py",
+      "tool": "exec_command",
+      "started_utc": "2026-11-13T11:16:30.441Z",
+      "completed_or_yielded_utc": "2026-11-13T11:16:32.855Z",
+      "result": {
+        "chunk_id": "613008",
+        "wall_time_seconds": 2.124761,
+        "exit_code": 0,
+        "original_token_count": 166,
+        "output": "{\r\n  \"status\": \"PASS\",\r\n  \"raw_source_hashes_verified\": 10,\r\n  \"market_rows_reconstructed\": 4242,\r\n  \"maximum_input_gap\": 5.002220859751105e-11,\r\n  \"historical_forecast_records\": 2667,\r\n  \"selected_model_origins\": 381,\r\n  \"independent_OLS_fits\": 1143,\r\n  \"maximum_forecast_gap_points\": 5.093170329928398e-11,\r\n  \"horizon_sessions\": 6,\r\n  \"final_forecast\": \"7629.84\",\r\n  \"final_refit_decimal_check\": \"PASS\",\r\n  \"original_regression_crosscheck\": \"PASS\",\r\n  \"pdf_cover_manifest_match\": \"PASS\",\r\n  \"limitations\": \"Numerical/source-snapshot verification does not verify every original publication vintage, validate causal prediction or constitute human approval.\"\r\n}\r\n"
+      },
+      "redactions": "Bundled executable path and host working directory are omitted from this public command display."
+    },
+    {
+      "command": "python -X utf8 02_Code/two_factor_extension.py",
+      "tool": "exec_command",
+      "started_utc": "2026-11-13T11:16:59.746Z",
+      "completed_or_yielded_utc": "2026-11-13T11:17:05.687Z",
+      "result": {
+        "chunk_id": "8fe296",
+        "wall_time_seconds": 5.6902242,
+        "exit_code": 0,
+        "original_token_count": 218,
+        "output": "{\r\n  \"origins\": 381,\r\n  \"extensions\": 99,\r\n  \"best_full_period\": {\r\n    \"rank\": 1,\r\n    \"added_factor\": \"curve30_10\",\r\n    \"name\": \"30年减10年期限利差\",\r\n    \"MAPE_pct\": 1.3840385669582123,\r\n    \"MAE_points\": 94.11933338260833,\r\n    \"min_APE_pct\": 0.006492433182753142,\r\n    \"max_APE_pct\": 6.004306889173529,\r\n    \"difference_pp\": -0.018450958016445272,\r\n    \"CI95_low_pp\": -0.09467049392989657,\r\n    \"CI95_high_pp\": 0.07758702472404744,\r\n    \"simultaneous95_low_pp\": -0.12055493778462892,\r\n    \"simultaneous95_high_pp\": 0.08365302175173839\r\n  },\r\n  \"single_factor_MAPE_pct\": 1.4024895249746576,\r\n  \"improved_pairs\": 30,\r\n  \"max_search_p_approx\": 0.9380206597800733,\r\n  \"largest_standardised_condition_number\": 4.0526452832103335,\r\n  \"retained_model\": \"VIX3M/VIX only\",\r\n  \"reason\": \"Small error gain; paired and multiple-comparison intervals include zero.\"\r\n}\r\n"
+      },
+      "redactions": "Bundled executable and workspace paths omitted."
+    },
+    {
+      "command": "python -X utf8 02_Code/screen_factors.py",
+      "tool": "exec_command",
+      "started_utc": "2026-11-13T11:17:57.646Z",
+      "completed_or_yielded_utc": "2026-11-13T11:18:00.454Z",
+      "result": {
+        "chunk_id": "d52f39",
+        "wall_time_seconds": 2.5750444,
+        "exit_code": 0,
+        "original_token_count": 315,
+        "output": " rank              factor  MAPE_pct             name\r\n    1           vix3m_vix  1.402490        VIX3M/VIX\r\n    2         vix1y_vix3m  1.402541   VIX1Y与VIX3M期限比\r\n    3         vix1y_vix6m  1.406340   VIX1Y与VIX6M期限比\r\n    4         vix6m_vix3m  1.408116      VIX6M/VIX3M\r\n    5      realized_vol60  1.417393         60日历史波动率\r\n    6        yang_zhang20  1.418917 20日Yang Zhang波动率\r\n    7         vix9d_vix3m  1.419911   VIX9D与VIX3M期限比\r\n    8        upside_vol20  1.420218        20日上行半波动率\r\n    9 vix_curve_curvature  1.420413      VIX中段相对两端偏离\r\n   10      intraday_mean5  1.423224         5日平均日内收益\r\n{\r\n  \"origins\": 381,\r\n  \"origin_start\": \"2025-04-10\",\r\n  \"origin_end\": \"2026-10-15\",\r\n  \"best_factor\": \"vix3m_vix\",\r\n  \"best_MAPE_pct\": 1.4024895249746576,\r\n  \"full_MAPE_pct\": {\r\n    \"vix3m_vix\": 1.4024895249746576,\r\n    \"historical_mean\": 1.4403560267420883,\r\n    \"no_change\": 1.490776270018863\r\n  },\r\n  \"later_origins\": 127,\r\n  \"later_MAPE_pct\": {\r\n    \"vix3m_vix\": 1.267323397177298,\r\n    \"historical_mean\": 1.338013222042771,\r\n    \"no_change\": 1.3642617792302458\r\n  },\r\n  \"warning\": \"The later period overlaps the full selection sample; it is not an untouched holdout.\"\r\n}\r\n"
+      },
+      "redactions": "Bundled executable and workspace paths omitted."
+    }
+  ]
+}

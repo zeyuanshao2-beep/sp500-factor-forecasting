@@ -1,0 +1,49 @@
+{
+  "origin": "2026-11-12",
+  "target": "2026-11-20",
+  "information_cutoff_utc": "2026-11-13T12:00:00+00:00",
+  "horizon_sessions": 6,
+  "future_sessions": [
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-18",
+    "2026-11-19",
+    "2026-11-20"
+  ],
+  "origin_close": 7592.4,
+  "VIX": 18.7,
+  "VIX3M": 20.06,
+  "sources": [
+    {
+      "url": "https://cdn-api.cboe.com/api/global/delayed_quotes/quotes/_SPX.json",
+      "sha256": "ef73e8cef95ec1674abff5842e10c4d08ca9d8c46cc35d21dbf872d61e49be66",
+      "retrieved_utc": "2026-11-12T22:18:26.542405+00:00"
+    },
+    {
+      "url": "https://cdn-api.cboe.com/api/global/delayed_quotes/quotes/_VIX.json",
+      "sha256": "9930551beb8814f5cc6d651416864d83d0ae91c6891563343c04c66fd7fbfd85",
+      "retrieved_utc": "2026-11-12T22:18:26.856622+00:00"
+    },
+    {
+      "url": "https://cdn-api.cboe.com/api/global/delayed_quotes/quotes/_VIX3M.json",
+      "sha256": "5c9a42939d593f728c91f59ee622fb6b52e96527fd82815f863558c2c7b204ec",
+      "retrieved_utc": "2026-11-12T22:18:26.814616+00:00"
+    },
+    {
+      "url": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv",
+      "sha256": "8e7bc7943edf71afd29113f3c87c3a66b6e1a802cae990ecc26fe8884ac1b22c",
+      "retrieved_utc": "2026-11-12T22:17:17.089318+00:00"
+    },
+    {
+      "url": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
+      "sha256": "325e7d361a452cfeb94152f6d39ee4db28a8c0838357936b329137b61a063fc2",
+      "retrieved_utc": "2026-11-12T22:17:17.064312+00:00"
+    },
+    {
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?period1=1609459200&period2=1794528000&interval=1d",
+      "sha256": "b95197d5959a6232d5b557b4290f6dd7c7b070129edc8a29129724df9f3593c6",
+      "retrieved_utc": "2026-11-12T22:17:17.096312+00:00"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "single_factor_ranks_matched": 100,
+  "two_factor_ranks_matched": 99,
+  "single_MAPE_max_gap": 6.661338147750939e-16,
+  "pair_MAPE_max_gap": 4.912958928571243e-12
+}

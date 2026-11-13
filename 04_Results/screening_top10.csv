@@ -1,0 +1,11 @@
+pool,period,rank,factor,MAPE_pct,name
+revised100,full_descriptive,1,vix3m_vix,1.4024895249746576,VIX3M/VIX
+revised100,full_descriptive,2,vix1y_vix3m,1.402541130694719,VIX1Y与VIX3M期限比
+revised100,full_descriptive,3,vix1y_vix6m,1.4063404859684805,VIX1Y与VIX6M期限比
+revised100,full_descriptive,4,vix6m_vix3m,1.4081155051772682,VIX6M/VIX3M
+revised100,full_descriptive,5,realized_vol60,1.4173929899062838,60日历史波动率
+revised100,full_descriptive,6,yang_zhang20,1.4189168799207608,20日Yang Zhang波动率
+revised100,full_descriptive,7,vix9d_vix3m,1.41991079812044,VIX9D与VIX3M期限比
+revised100,full_descriptive,8,upside_vol20,1.4202175174768643,20日上行半波动率
+revised100,full_descriptive,9,vix_curve_curvature,1.4204134013142884,VIX中段相对两端偏离
+revised100,full_descriptive,10,intraday_mean5,1.423223693285648,5日平均日内收益

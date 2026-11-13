@@ -1,0 +1,19 @@
+{
+  "origins": 381,
+  "origin_start": "2025-04-10",
+  "origin_end": "2026-10-15",
+  "best_factor": "vix3m_vix",
+  "best_MAPE_pct": 1.4024895249746576,
+  "full_MAPE_pct": {
+    "vix3m_vix": 1.4024895249746576,
+    "historical_mean": 1.4403560267420883,
+    "no_change": 1.490776270018863
+  },
+  "later_origins": 127,
+  "later_MAPE_pct": {
+    "vix3m_vix": 1.267323397177298,
+    "historical_mean": 1.338013222042771,
+    "no_change": 1.3642617792302458
+  },
+  "warning": "The later period overlaps the full selection sample; it is not an untouched holdout."
+}

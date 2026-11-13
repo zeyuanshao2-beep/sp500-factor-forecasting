@@ -1,0 +1,32 @@
+{
+  "information_cutoff_utc": "2026-11-13T12:00:00+00:00",
+  "last_usable_equity_close": "2026-11-12",
+  "last_observations": {
+    "SP500": {
+      "date": "2026-11-12",
+      "close": 7592.4,
+      "unit": "index points"
+    },
+    "VIX": {
+      "date": "2026-11-12",
+      "close": 18.7,
+      "unit": "annualised percentage points",
+      "quote_time_new_york": "2026-11-12T16:15:01"
+    },
+    "VIX3M": {
+      "date": "2026-11-12",
+      "close": 20.06,
+      "unit": "annualised percentage points",
+      "quote_time_new_york": "2026-11-12T16:15:01"
+    }
+  },
+  "csv_and_quote_policy": "November daily volatility CSVs ended on 11 November at retrieval; the frozen 12 November Cboe quotes supply the final input. The archived overlap is retained.",
+  "training_rule": "For each close t, use the latest 1,260 finite pairs with target_date <= t. Construct the target on the actual equity-session calendar with a six-row shift.",
+  "historical_availability": "Final daily values are treated as usable by the next equity session London noon. Original release/correction vintages have not been fully verified.",
+  "other_factors": "Option statistics and Treasury yields follow the conservative lag rules recorded in factor_catalog.csv. features100.csv.gz is the frozen derived matrix, not a new retrieval.",
+  "data_periods": {
+    "market_history": "2010-01-04 through 2026-11-12",
+    "screening_matrix": "2020-03-30 through 2026-10-23",
+    "forecast_origins": "2025-04-10 through 2026-10-15"
+  }
+}

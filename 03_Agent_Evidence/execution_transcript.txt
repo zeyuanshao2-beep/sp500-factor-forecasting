@@ -1,0 +1,155 @@
+STARTED UTC: 2026-11-13T11:16:30.431Z
+TOOL: exec_command
+COMMAND: python 02_Code/final_forecast.py
+EXIT: 0
+{
+  "origin": "2026-11-12",
+  "target": "2026-11-20",
+  "training_n": 1260,
+  "training_start": "2021-10-28",
+  "training_end": "2026-11-04",
+  "latest_training_target": "2026-11-12",
+  "alpha": 0.05640705524827948,
+  "beta": -0.047985808008184916,
+  "ratio": 1.0727272727272728,
+  "predicted_return_decimal": 0.004931370294044751,
+  "predicted_return_pct": 0.4931370294044751,
+  "unrounded_forecast": 7629.840935820505,
+  "final_forecast": "7629.84",
+  "independent_decimal_check": "PASS"
+}
+
+
+STARTED UTC: 2026-11-13T11:16:30.441Z
+TOOL: exec_command
+COMMAND: python -m unittest discover -s 02_Code/tests -v
+EXIT: 0
+test_frozen_forecast_and_training_boundary (test_forecasting.FinalForecastChecks.test_frozen_forecast_and_training_boundary) ... ok
+test_unmatured_label_is_rejected (test_forecasting.FinalForecastChecks.test_unmatured_label_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.031s
+
+OK
+
+
+STARTED UTC: 2026-11-13T11:16:30.441Z
+TOOL: exec_command
+COMMAND: python 02_Code/construct_factor.py
+EXIT: 0
+{
+  "rows": 4242,
+  "horizon_sessions": 6,
+  "last_observation": "2026-11-12",
+  "ratio_and_targets_crosscheck": "PASS",
+  "output": "reproduced_results\\constructed_factor.csv"
+}
+
+
+STARTED UTC: 2026-11-13T11:16:30.441Z
+TOOL: exec_command
+COMMAND: python 02_Code/window_benchmarks.py
+EXIT: 0
+    model  MAPE_pct  MAE_points  min_APE_pct  max_APE_pct
+  vix_756  1.407965   95.534616     0.001734     6.725834
+ mean_756  1.450730   98.643027     0.014265     7.078026
+no_change  1.490776  101.300657     0.001544     7.240464
+ vix_1260  1.402490   95.330994     0.001601     6.318670
+mean_1260  1.440356   97.988231     0.001482     6.921310
+ vix_2520  1.428802   97.112120     0.004824     6.791378
+mean_2520  1.447065   98.387455     0.001665     7.003532
+{
+  "origins": 381,
+  "bootstrap_replicates": 3000,
+  "block_length": 20,
+  "archived_bootstrap_max_gap": 4.7406523151494184e-14,
+  "status": "PASS"
+}
+
+
+STARTED UTC: 2026-11-13T11:16:30.441Z
+TOOL: exec_command
+COMMAND: python 02_Code/verify_package.py
+EXIT: 0
+{
+  "status": "PASS",
+  "raw_source_hashes_verified": 10,
+  "market_rows_reconstructed": 4242,
+  "maximum_input_gap": 5.002220859751105e-11,
+  "historical_forecast_records": 2667,
+  "selected_model_origins": 381,
+  "independent_OLS_fits": 1143,
+  "maximum_forecast_gap_points": 5.093170329928398e-11,
+  "horizon_sessions": 6,
+  "final_forecast": "7629.84",
+  "final_refit_decimal_check": "PASS",
+  "original_regression_crosscheck": "PASS",
+  "pdf_cover_manifest_match": "PASS",
+  "limitations": "Numerical/source-snapshot verification does not verify every original publication vintage, validate causal prediction or constitute human approval."
+}
+
+
+STARTED UTC: 2026-11-13T11:16:59.746Z
+TOOL: exec_command
+COMMAND: python -X utf8 02_Code/two_factor_extension.py
+EXIT: 0
+{
+  "origins": 381,
+  "extensions": 99,
+  "best_full_period": {
+    "rank": 1,
+    "added_factor": "curve30_10",
+    "name": "30年减10年期限利差",
+    "MAPE_pct": 1.3840385669582123,
+    "MAE_points": 94.11933338260833,
+    "min_APE_pct": 0.006492433182753142,
+    "max_APE_pct": 6.004306889173529,
+    "difference_pp": -0.018450958016445272,
+    "CI95_low_pp": -0.09467049392989657,
+    "CI95_high_pp": 0.07758702472404744,
+    "simultaneous95_low_pp": -0.12055493778462892,
+    "simultaneous95_high_pp": 0.08365302175173839
+  },
+  "single_factor_MAPE_pct": 1.4024895249746576,
+  "improved_pairs": 30,
+  "max_search_p_approx": 0.9380206597800733,
+  "largest_standardised_condition_number": 4.0526452832103335,
+  "retained_model": "VIX3M/VIX only",
+  "reason": "Small error gain; paired and multiple-comparison intervals include zero."
+}
+
+
+STARTED UTC: 2026-11-13T11:17:57.646Z
+TOOL: exec_command
+COMMAND: python -X utf8 02_Code/screen_factors.py
+EXIT: 0
+ rank              factor  MAPE_pct             name
+    1           vix3m_vix  1.402490        VIX3M/VIX
+    2         vix1y_vix3m  1.402541   VIX1Y与VIX3M期限比
+    3         vix1y_vix6m  1.406340   VIX1Y与VIX6M期限比
+    4         vix6m_vix3m  1.408116      VIX6M/VIX3M
+    5      realized_vol60  1.417393         60日历史波动率
+    6        yang_zhang20  1.418917 20日Yang Zhang波动率
+    7         vix9d_vix3m  1.419911   VIX9D与VIX3M期限比
+    8        upside_vol20  1.420218        20日上行半波动率
+    9 vix_curve_curvature  1.420413      VIX中段相对两端偏离
+   10      intraday_mean5  1.423224         5日平均日内收益
+{
+  "origins": 381,
+  "origin_start": "2025-04-10",
+  "origin_end": "2026-10-15",
+  "best_factor": "vix3m_vix",
+  "best_MAPE_pct": 1.4024895249746576,
+  "full_MAPE_pct": {
+    "vix3m_vix": 1.4024895249746576,
+    "historical_mean": 1.4403560267420883,
+    "no_change": 1.490776270018863
+  },
+  "later_origins": 127,
+  "later_MAPE_pct": {
+    "vix3m_vix": 1.267323397177298,
+    "historical_mean": 1.338013222042771,
+    "no_change": 1.3642617792302458
+  },
+  "warning": "The later period overlaps the full selection sample; it is not an untouched holdout."
+}

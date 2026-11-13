@@ -1,0 +1,37 @@
+{
+  "index": "S&P 500 price index; research input ^GSPC, not SPY or total return",
+  "regression_start": "2020-04-01",
+  "research_data_end": "2026-10-23",
+  "horizon_US_equity_sessions": 6,
+  "output_directory": "outputs/horizon6_cutoff",
+  "minimum_mature_training_pairs": 126,
+  "assignment": {
+    "information_cutoff_utc": "2026-11-13T12:00:00+00:00",
+    "information_cutoff_london": "2026-11-13 12:00 Europe/London",
+    "information_cutoff_new_york": "2026-11-13 07:00 America/New_York",
+    "last_regular_close_date": "2026-11-12",
+    "target_date": "2026-11-20",
+    "target_definition": "Official closing S&P 500 PRICE-index level from S&P Dow Jones Indices",
+    "selected_market": "S&P 500",
+    "selected_model": null,
+    "status": "Research only; explicitly choose final model and acquire November 12 data before freezing"
+  },
+  "factor_definitions": {
+    "pcr5": "sum Put(t-5..t-1)/sum Call(t-5..t-1), SPX+SPXW VOLUME all expiries; NOT a 6-day PCR window",
+    "momentum20": "ln(P_t/P_(t-20))",
+    "ma_gap20": "P_t/mean(P_t..P_(t-19))-1",
+    "realized_vol20": "sample std of 20 daily log returns ending t, ddof=1, times sqrt(252)"
+  },
+  "availability": "t is the last completed regular-session close. Issue time is next US session at London noon, before regular New York open. PCR conservatively excludes t; price factors include t. Training target_date <= t. Original historical publication vintages remain unverified.",
+  "training_target": "P_(t+6)/P_t-1; all coefficients are re-estimated for this horizon",
+  "development_last_target": "2025-07-14",
+  "recent_first_anchor": "2025-07-15",
+  "longer_first_anchor": "2023-08-01",
+  "evaluation": "Common mature daily anchors; separately report Friday-London-noon to next-Friday-close cases. Weekly matching excludes holiday weeks where six actual sessions do not end next Friday.",
+  "uncertainty": "Daily circular block bootstrap20 anchors,1500 replicates,seed20261027; weekly cases use blocks of4 observations; exploratory, no multiple-search correction",
+  "data": "Frozen Yahoo ^GSPC daily closes and dated Cboe SPX+SPXW volumes; no new downloads for the horizon change",
+  "nyse_2026_closed_dates": ["2026-01-01", "2026-01-19", "2026-02-16", "2026-04-03", "2026-05-25", "2026-06-19", "2026-07-03", "2026-09-07", "2026-11-26", "2026-12-25"],
+  "calendar_source": "https://www.nyse.com/trade/hours-calendars",
+  "target_source": "https://www.spglobal.com/spdji/en/indices/equity/sp-500/",
+  "selection": "Retain previous factors/windows. Horizon change is required by the assignment, not selected for historical error. Five-session outputs remain historical; six-session findings are exploratory."
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "raw_source_hashes_verified": 10,
+  "market_rows_reconstructed": 4242,
+  "maximum_input_gap": 5.002220859751105e-11,
+  "historical_forecast_records": 2667,
+  "selected_model_origins": 381,
+  "independent_OLS_fits": 1143,
+  "maximum_forecast_gap_points": 5.093170329928398e-11,
+  "horizon_sessions": 6,
+  "final_forecast": "7629.84",
+  "final_refit_decimal_check": "PASS",
+  "original_regression_crosscheck": "PASS",
+  "pdf_cover_manifest_match": "PASS",
+  "limitations": "Numerical/source-snapshot verification does not verify every original publication vintage, validate causal prediction or constitute human approval."
+}

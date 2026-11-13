@@ -1,58 +1,96 @@
-# S&P 500 Factor Forecasting
+# S&P 500 Factor Forecasting Evidence Package
 
-This repository contains the code used to forecast the S&P 500 closing level six US trading sessions ahead. It covers factor screening, single-factor validation, two-factor extensions, and the final forecast presented in the accompanying report. The original project files are retained locally.
+This repository contains the frozen data, portable Python code, agent evidence,
+historical results and figures for the report's six-session S&P 500 forecast.
+All numerical reproduction uses the supplied snapshots and requires no network access.
 
-## Main Results
+## Frozen forecast
 
-| Item | Result |
+| Item | Value |
 | --- | --- |
-| Forecast origin | Market close on 12 November 2026 |
-| Forecast target | Market close on 20 November 2026 |
-| Final model | VIX3M/VIX; OLS with an intercept, fitted to 1,260 observations with realized six-session returns |
-| Index level at the forecast origin | 7,592.40 |
-| Forecast six-session return | 0.493% |
-| Forecast closing level | **7,629.84** |
+| Origin | Close on 12 November 2026 |
+| Target | Official S&P 500 price-index close on 20 November 2026, 16:00 New York / 21:00 UTC |
+| Information cutoff | 13 November 2026, 12:00 London / UTC, 07:00 New York |
+| Model | VIX3M/VIX; OLS with intercept; 1,260 mature training pairs |
+| Origin index level | 7,592.40 |
+| Predicted six-session return | 0.493% |
+| Final forecast | **7,629.84 index points** |
 
-Calculations use full numerical precision. General numerical results in the report are displayed to three decimal places, and index levels to two decimal places.
+`final_forecast.json` records full-precision inputs and coefficients, target/cutoff
+times, the six future sessions and a SHA256-linked check against the submitted PDF cover.
 
-## Reproduce the Final Forecast
+## Repository structure
 
-Use Python 3.11 or later. The final forecast script uses only the Python standard library and can run offline:
+- `01_Data/`: frozen S&P 500, VIX and VIX3M source bodies; source URLs, original retrieval times, publication-time limitations and last usable observations; complete compressed 100-factor matrix and exact final training sample.
+- `02_Code/`: factor construction, rolling OLS, screening/backtests, second-factor bootstrap, independent verification and final refit.
+- `03_Agent_Evidence/`: selected original prompts/responses, six-session correction and separately labelled current execution/tool receipts.
+- `04_Results/`: rankings, 381 historical forecasts, regression evidence, benchmarks, bootstrap intervals and verification receipts.
+- `05_Figures/`: original regression scatterplot, actual-versus-forecast chart, final refit and editable workflow diagrams.
+
+## Software and installation
+
+Python 3.11 or later. Exact versions used for this package are in
+`02_Code/software_versions.json`; `requirements.txt` pins NumPy, pandas and timezone data.
 
 ```bash
-python scripts/final_forecast.py
-python -m unittest discover -s tests -v
-```
-
-The training factor dates run from 2021-10-28 to 2026-11-04. All 1,260 six-session target returns were realized on or before 2026-11-12. The script cross-checks the OLS coefficients using `statistics.linear_regression` and centered-moment formulas evaluated with 50-digit Decimal precision. It rejects training labels that had not been realized by the forecast origin.
-
-## Factor Screening and Two-Factor Extensions
-
-```bash
+python -m venv .venv
+# Windows PowerShell
+.venv\Scripts\Activate.ps1
+# macOS / Linux, instead:
+# source .venv/bin/activate
 python -m pip install -r requirements.txt
-python scripts/screen_factors.py --features data/local/revised_features100.csv
-python scripts/two_factor_extension.py --features data/local/revised_features100.csv
 ```
 
-The complete 100-factor input matrix is not included in this repository. See [data/README.md](data/README.md) for the required input format and its location in the original local project.
+## Reproduction commands
 
-Each rolling fit uses the most recent 1,260 observations whose target returns were already realized at the corresponding forecast origin. All models are compared across the same 381 historical forecast origins. Factor rankings, predicted index levels, and summary results are written to `results/` without overwriting the inputs.
+Run these commands from the repository root:
 
-VIX3M/VIX achieves the lowest full-period single-factor MAPE, at 1.402%. The best two-factor extension adds the 30-year minus 10-year US Treasury yield spread, reducing MAPE to 1.384%, an improvement of 0.018 percentage points. However, the paired block-bootstrap 95% interval includes zero, including after adjustment for multiple comparisons. The simpler single-factor model is therefore retained.
+```bash
+# Final forecast: Python standard library only
+python 02_Code/final_forecast.py
+python -m unittest discover -s 02_Code/tests -v
 
-The later 127 forecast origins overlap with the full-period screening sample. They provide a stability diagnostic rather than an independent holdout test. Factor screening and window comparisons are exploratory historical analyses; the lowest backtest error does not guarantee future performance.
+# Rebuild the ratio and targets from frozen market data
+python 02_Code/construct_factor.py
 
-## Repository Contents
+# All 100 single-factor models on the same 381 historical origins
+python 02_Code/screen_factors.py
 
-- `src/forecasting.py`: Rolling OLS, error calculations, two-factor fitting, and block-bootstrap functions preserved from the original research scripts.
-- `scripts/screen_factors.py`: Ranking of 100 single-factor models and benchmark comparisons over the later sample; corresponds to report Sections 5.1 and 5.2.
-- `scripts/two_factor_extension.py`: Extensions that retain VIX3M/VIX and add each of the other 99 candidate factors; corresponds to report Section 5.3.
-- `scripts/final_forecast.py`: Final OLS fit using 1,260 observations and the 20 November closing-level forecast; corresponds to report Section 5.4.
-- `data/`: Factor definitions, the final training snapshot, and public-source provenance.
-- `PROVENANCE.json`: SHA256 hashes of the original scripts and input files used to prepare this repository.
+# All 99 two-factor extensions and paired/multiple-comparison bootstrap
+python 02_Code/two_factor_extension.py
 
-## Data and Provenance
+# Reproduce 3/5/10-year windows, benchmarks and block-bootstrap comparisons
+python 02_Code/window_benchmarks.py
 
-The repository includes the research code and the final training snapshot needed to reproduce the final forecast. It excludes Word reports, conversation records, software runtimes, raw HTTP response headers, cookies, and account credentials.
+# Independent standard-library verification of all 381 selected-model fits
+python 02_Code/verify_package.py
+```
 
-The final forecast inputs are sourced from Yahoo Finance and Cboe; the detailed source URLs are recorded in `data/final_inputs.json`. Third-party data remain subject to their providers' terms, and this repository does not grant additional rights to those data.
+New calculations are written to `reproduced_results/`; archived inputs and results
+are not overwritten. Screening should select VIX3M/VIX within the report's revised
+100-factor matrix (MAPE 1.402%). Benchmarks have MAPEs 1.440% and 1.491%; the later
+127-origin MAPEs are 1.267%, 1.338% and 1.364%. The best two-factor extension adds
+the 30-year minus 10-year Treasury spread (MAPE 1.384%); its paired 95% difference
+interval spans zero. The final script should return `final_forecast: "7629.84"`
+and `independent_decimal_check: "PASS"`. Verification should report `PASS`.
+
+## Interpretation and evidence limits
+
+The report uses the archived revised 100-factor candidate matrix. Rankings are
+conditional on that candidate set and the historical dates examined. The later
+127 origins overlap the full screening sample and provide a stability diagnostic,
+not an untouched holdout. Six-session errors overlap; block-bootstrap comparisons
+are conditional exploratory checks. Original publication/correction vintages have
+not been fully verified. Numerical reproducibility does not establish availability
+of every original historical input or future forecast accuracy.
+
+Original prompt/response excerpts, selected original tool calls extracted from the
+archived rollout, and current reproduction receipts are identified separately.
+Only whitelisted tool records are included; private reasoning, system/developer
+messages and unrelated conversations are excluded. Diagrams document the workflow;
+they are not original screenshots. Human approval is not inferred or fabricated.
+
+Raw options/Treasury feeds for constructing every candidate are not included; the
+complete frozen derived matrix is supplied for offline ranking reproduction.
+Provider response bodies retain their original bytes. Public metadata omit cookies,
+credentials and unrelated headers. Third-party data remain subject to provider terms.

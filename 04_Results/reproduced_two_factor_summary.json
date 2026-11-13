@@ -1,0 +1,24 @@
+{
+  "origins": 381,
+  "extensions": 99,
+  "best_full_period": {
+    "rank": 1,
+    "added_factor": "curve30_10",
+    "name": "30年减10年期限利差",
+    "MAPE_pct": 1.3840385669582123,
+    "MAE_points": 94.11933338260833,
+    "min_APE_pct": 0.006492433182753142,
+    "max_APE_pct": 6.004306889173529,
+    "difference_pp": -0.018450958016445272,
+    "CI95_low_pp": -0.09467049392989657,
+    "CI95_high_pp": 0.07758702472404744,
+    "simultaneous95_low_pp": -0.12055493778462892,
+    "simultaneous95_high_pp": 0.08365302175173839
+  },
+  "single_factor_MAPE_pct": 1.4024895249746576,
+  "improved_pairs": 30,
+  "max_search_p_approx": 0.9380206597800733,
+  "largest_standardised_condition_number": 4.0526452832103335,
+  "retained_model": "VIX3M/VIX only",
+  "reason": "Small error gain; paired and multiple-comparison intervals include zero."
+}

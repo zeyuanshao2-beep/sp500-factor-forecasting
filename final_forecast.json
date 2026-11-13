@@ -1,0 +1,55 @@
+{
+  "market": "S&P 500 price index",
+  "research_symbol": "^GSPC",
+  "unit": "index points",
+  "target_definition": "Official S&P Dow Jones Indices S&P 500 PRICE-index close; not ETF or total return",
+  "target_time": {
+    "new_york": "2026-11-20T16:00:00-05:00",
+    "utc": "2026-11-20T21:00:00Z"
+  },
+  "information_cutoff": {
+    "london": "2026-11-13T12:00:00+00:00",
+    "utc": "2026-11-13T12:00:00Z",
+    "new_york": "2026-11-13T07:00:00-05:00"
+  },
+  "origin_date": "2026-11-12",
+  "horizon_sessions": 6,
+  "future_sessions": [
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-18",
+    "2026-11-19",
+    "2026-11-20"
+  ],
+  "model": {
+    "factor": "VIX3M/VIX",
+    "estimator": "OLS with intercept",
+    "training_pairs": 1260,
+    "training_origin_start": "2021-10-28",
+    "training_origin_end": "2026-11-04",
+    "latest_training_target": "2026-11-12"
+  },
+  "calculation_inputs": {
+    "origin_close": 7592.4,
+    "VIX": 18.7,
+    "VIX3M": 20.06,
+    "ratio": 1.0727272727272728,
+    "intercept": 0.056407055248279464,
+    "slope": -0.04798580800818491
+  },
+  "predicted_return_decimal": 0.004931370294044744,
+  "predicted_return_pct": 0.49313702940447446,
+  "unrounded_forecast": 7629.840935820505,
+  "final_forecast_value": 7629.84,
+  "final_forecast_display": "7,629.84",
+  "rounding_policy": "Full precision for calculations; general displayed data 3 decimals and index levels 2 decimals.",
+  "pdf_cover_check": {
+    "filename": "SP500_Single_Factor_Report_11.12_Final_Forecast_3dp_Refined.pdf",
+    "sha256": "e86ec016d1c416ddac0a964be890c43b83bc9ecc5e3252da22a04ea97c4c004b",
+    "page": 1,
+    "matches": true
+  },
+  "frozen_data_manifest": "01_Data/source_manifest.json",
+  "human_approval_status": "Not inferred from numerical checks; group responsible for final sign-off."
+}

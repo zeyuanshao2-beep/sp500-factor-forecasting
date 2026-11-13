@@ -1,0 +1,51 @@
+{
+  "data_end": "2026-10-23",
+  "windows": [
+    756,
+    1260,
+    2520
+  ],
+  "horizon_sessions": 6,
+  "window_definition": "Exactly756/1260/2520 most recent fully matured daily training pairs, approximately3/5/10 years; not calendar-year windows.",
+  "factor": "VIX3M_close_t/VIX_close_t, raw ratio; daily final observations, not futures prices or settlement quotations",
+  "equation": "R_(t,t+6)=P_(t+6)/P_t-1;OLS: Rhat=alpha+beta*ratio;Phat=P_t*(1+Rhat)",
+  "training_rule": "Use actual equity-session calendar; target_date<=origin_date, full required window, no shorter substitute, no missing fill.",
+  "information_rule": "Forecast issued next equity session at12:00 Europe/London; use last completed regular close and Cboe final daily values. Original publication/correction vintages unverified.",
+  "price_rule": "Old frozen2020-2026 Yahoo SPX PRICE closes preserved. Separate2010-2020 extension adds earlier history only; all213 overlapping closes identical.",
+  "price_overlap_rows": 213,
+  "price_overlap_max_difference": 0.0,
+  "parent_forecasts_sha256": "afe60944355452f9b6693051fd853bf616b0a32058bb7789a202621106333975",
+  "parent_config_sha256": "7613a28b0787a610c4f3f1e7c22edea0b010236703064a7828fd2fd60631ee78",
+  "parent_verification_sha256": "f109bc3f62e1f584d30c803a6b6a62568cbcdd923a284fdcfaadff8867464a3a",
+  "previous_window_forecasts_sha256": "321a09ddd9afc5db7d76c6a6732e85c0da0757576dce4455a95bd26697dd5faf",
+  "source_count": 4,
+  "assignment": {
+    "information_cutoff_utc": "2026-11-13T12:00:00+00:00",
+    "information_cutoff_london": "2026-11-13 12:00 Europe/London",
+    "information_cutoff_new_york": "2026-11-13 07:00 America/New_York",
+    "last_regular_close_date": "2026-11-12",
+    "target_date": "2026-11-20",
+    "target_definition": "Official closing S&P 500 PRICE-index level from S&P Dow Jones Indices",
+    "selected_market": "S&P 500",
+    "selected_model": null,
+    "status": "Research only; explicitly choose final model and acquire November 12 data before freezing"
+  },
+  "final_assignment_forecast": false,
+  "bootstrap": {
+    "replicates": 3000,
+    "block_length": 20,
+    "seed": 20261105
+  },
+  "test_start": "2025-04-10",
+  "test_end": "2026-10-15",
+  "test_origin_count": 381,
+  "first_target": "2025-04-21",
+  "last_target": "2026-10-23",
+  "primary_evaluation_period": "test",
+  "primary_model": null,
+  "evaluation_rule": "User-specified inclusive origin start. Every actual US-equity session with observed six-session outcome is included; same origins for all7 models. No inherited317/379 origin filter.",
+  "test_start_interpretation": "2025-04-10 is the first base close/origin, not the first target or forecast release date.",
+  "selection_warning": "The user fixed this test start after viewing prior results. This is an exploratory historical comparison, not a new untouched holdout. No automatic final-window selection.",
+  "previous_three_window_forecasts_sha256": "e9d18e7fd1a6665d65bb47d95547b909c70109c1d8710fa29bb9c3f84d3d51b3",
+  "preparer_sha256": "7d75c2c899e7b1842fc5596817329ec497bee8084a3fdd5095a44bfd5e4ca32f"
+}

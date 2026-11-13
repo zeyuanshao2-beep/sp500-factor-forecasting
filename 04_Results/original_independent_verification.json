@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "test_start": "2025-04-10",
+  "test_end": "2026-10-15",
+  "test_origins": 381,
+  "forecast_records": 2667,
+  "windows": [
+    756,
+    1260,
+    2520
+  ],
+  "raw_source_files_verified": 4,
+  "independent_OLS_fits": 1143,
+  "numeric_comparisons": 46244,
+  "previous_forecast_records_reproduced": 2653,
+  "max_price_difference": 5.002220859751105e-11,
+  "method": "Independent raw Yahoo/Cboe reconstruction; centered stdlib linear_regression vs numpy least squares; verifies every full window, maturity, actual calendar, inclusive fixed test start, identical origin cohorts, coefficients, forecasts, error metrics, extreme dates, year/nonoverlap checks and overlap reproduction.",
+  "limits": "Historical original publication/correction vintages unverified. Bootstrap mean differences independently checked; random confidence draws not independently reproduced. Exploratory historical evaluation.",
+  "forecasts_sha256": "c3df3fd2c6e43e2d65f3da1cbdd8a232d55988177d2ea3fae997ed776092b567",
+  "configuration_sha256": "a4e93c864e27251a9e4086ad52af64921b1281ba49c3b3cfbead0f11086e3df2",
+  "producer_sha256": "611ccc54eaa0cc4b56b399aa876e7b8e304cf49b9e1d707dab0144ceebfd035e",
+  "verifier_sha256": "a70a6f2f4e6722d1cf824eb2cab20d01f9a4b95ce4dedff19956609bf5a03234",
+  "final_submission": false
+}

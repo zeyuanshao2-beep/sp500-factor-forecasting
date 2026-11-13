@@ -5,11 +5,6 @@ venv/
 .env
 .env.*
 *.log
-results/
-data/local/
-*.docx
-*.pdf
-*.png
-*.zip
+reproduced_results/
 .DS_Store
 Thumbs.db
